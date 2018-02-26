@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import albumData from './../data/albums';
 
-//** Old function displaying Library Page **
-// const Library = () => (
-//   <section className="library">
-//     Library will go here
-//   </section>
-// );
-
 class Library extends Component {
   constructor(props) {
     super(props);

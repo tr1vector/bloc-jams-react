@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
 import PlayerBar from './PlayerBar';
-//** Original function for Album page **
-// const Album = () => (
-//   <section className="album">
-//     Album info listed here
-//   </section>
-// );
 
 class Album extends Component {
   constructor(props) {
@@ -61,7 +55,7 @@ class Album extends Component {
 
   handleNextClick() {
     const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
-    const newIndex = currentIndex +1;
+    const newIndex = Math.min(this.state.album.songs.length -1, currentIndex +1);
     const newSong = this.state.album.songs[newIndex];
     this.setSong(newSong);
     this.play(newSong);
@@ -90,9 +84,9 @@ class Album extends Component {
             	<tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
 			          <td className="song-actions">
 			            <button>
-				            <span class="song-number">{index + 1}</span>
-				            <span class="ion-play"></span>
-				            <span class="ion-pause"></span>
+				            <span className="song-number">{index + 1}</span>
+				            <span className="ion-play"></span>
+				            <span className="ion-pause"></span>
 				          </button>
 			          </td>
 			          <td className="song-title">{song.title}</td>
